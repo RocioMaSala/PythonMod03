@@ -1,7 +1,7 @@
 import sys
 
 
-inventory: dict [str, int] = {}
+inventory: dict[str, int] = {}
 
 if __name__ == "__main__":
     print("=== Inventory System Analysis ===")
