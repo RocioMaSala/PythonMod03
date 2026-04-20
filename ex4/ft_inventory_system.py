@@ -20,11 +20,11 @@ if __name__ == "__main__":
             print(f"Redundant item {item} - discarding")
             continue
         inventory[item] = quantity
-    
+
     print(f"Got inventory: {inventory}")
-    
+
     print(f"Item list: {list(inventory.keys())}")
-    
+
     total_quantity = sum(inventory.values())
     item_number = len(inventory.keys())
     print(f"Total quantity of the {item_number} items: {total_quantity}")
@@ -35,7 +35,7 @@ if __name__ == "__main__":
             print(f"Item {item} represents {representation:.2f}%")
 
         most_abundant_item = max(inventory.items(), key=lambda x: x[1])
-        item, quantity = most_abundant_item #Hay que desempaquetar para definir item y q
+        item, quantity = most_abundant_item
         print(f"Item most abundant: {item} with quantity {quantity}")
 
         least_abundant_item = min(inventory.items(), key=lambda x: x[1])

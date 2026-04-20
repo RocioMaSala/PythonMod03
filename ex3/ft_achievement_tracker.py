@@ -8,13 +8,17 @@ achievements = [
     'Untouchable', 'Sharp Mind', 'Boss Slayer'
 ]
 
+
 def gen_player_achievements() -> set[str]:
-    return set(random.sample(achievements, random.randint(1, len(achievements))))
+    return set(
+          random.sample(achievements, random.randint(1, len(achievements)))
+          )
+
 
 if __name__ == "__main__":
     print("=== Achievement Tracker System ===\n")
-    all_sets = {} #Creo un diccionario de sets, no una lista. 
-    for player in ['Alice', 'Bob', 'Charlie', 'Dylan']: 
+    all_sets = {}
+    for player in ['Alice', 'Bob', 'Charlie', 'Dylan']:
         player_achievements = gen_player_achievements()
         all_sets[player] = player_achievements
         print(f"Player {player}: {player_achievements}")
@@ -28,20 +32,13 @@ if __name__ == "__main__":
 
     unique_achievements = {}
     for player in all_sets:
-            others = set().union(*(v for p, v in all_sets.items() if p != player))
-            unique_achievements[player] = all_sets[player].difference(others)
-            print(f"Only {player} has: {unique_achievements[player]}")
+        others = set().union(*(v for p, v in all_sets.items() if p != player))
+        unique_achievements[player] = all_sets[player].difference(others)
+        print(f"Only {player} has: {unique_achievements[player]}")
 
     print()
     missing_achievements = {}
     for player in all_sets:
-            others = set().union(*(v for p, v in all_sets.items() if p != player))
-            missing_achievements[player] = others.difference(all_sets[player])
-            print(f"{player} is missing: {missing_achievements[player]}")
-
-
-
-
-
-
-
+        others = set().union(*(v for p, v in all_sets.items() if p != player))
+        missing_achievements[player] = others.difference(all_sets[player])
+        print(f"{player} is missing: {missing_achievements[player]}")
