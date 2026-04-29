@@ -9,15 +9,13 @@ def get_player_pos() -> tuple[float, ...]:
             print("Invalid syntax")
             continue
         coords = []
-        error = False
         for x in possible_coordinates:
             try:
                 coords.append(float(x.strip()))
             except ValueError as e:
                 print(f"Error on parameter '{x}': {e}")
-                error = True
                 break
-        if not error:
+        else:
             return tuple(coords)
 
 
