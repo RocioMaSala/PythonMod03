@@ -1,10 +1,15 @@
 import sys
 
-
 inventory: dict[str, int] = {}
+
 
 if __name__ == "__main__":
     print("=== Inventory System Analysis ===")
+
+    if len(sys.argv) == 1:
+        print("Usage: python3 ft_inventory_system.py <item>:<quantity> ...")
+        sys.exit()
+
     for arg in sys.argv[1:]:
         try:
             item, quantity_str = arg.split(":")
@@ -19,7 +24,7 @@ if __name__ == "__main__":
         if item in inventory:
             print(f"Redundant item {item} - discarding")
             continue
-        inventory[item] = quantity
+        inventory.update({item: quantity})
 
     print(f"Got inventory: {inventory}")
 
@@ -42,5 +47,5 @@ if __name__ == "__main__":
         item, quantity = least_abundant_item
         print(f"Item least abundant: {item} with quantity {quantity}")
 
-    inventory['magic_item'] = 1
+    inventory.update({'magic_item': 1})
     print(f"Updated inventory: {inventory}")

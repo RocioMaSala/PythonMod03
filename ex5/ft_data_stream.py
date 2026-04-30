@@ -26,11 +26,10 @@ if __name__ == "__main__":
         name, action = next(generator)
         print(f"Event {n}: Player {name} did action {action}")
 
-    ten_events = [next(generator) for n in range(11)]
+    ten_events = [next(generator) for n in range(10)]
     print(f"Built list of 10 events: {ten_events}")
 
     re_generator = consume_event(ten_events)
-    for n in range(11):
-        out_list = next(re_generator)
-        print(f"Got event from list: {out_list}")
+    for event in re_generator:
+        print(f"Got event from list: {event}")
         print(f"Remains in list {ten_events}")

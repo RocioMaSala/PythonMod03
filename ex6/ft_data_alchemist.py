@@ -8,7 +8,9 @@ comprehensions = [
 comprehensions_capitalized = [name.capitalize() for name in comprehensions]
 compr_only_capit = [name for name in comprehensions if name[0].isupper()]
 
-dict_comprehensions = {name: random.randint(0, 800) for name in comprehensions}
+dict_comprehensions = {
+    name: random.randint(0, 800) for name in comprehensions_capitalized
+    }
 
 average = sum(dict_comprehensions.values()) / len(dict_comprehensions)
 
